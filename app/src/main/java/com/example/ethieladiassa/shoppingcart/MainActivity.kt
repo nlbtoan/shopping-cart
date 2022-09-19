@@ -1,10 +1,10 @@
 package com.example.ethieladiassa.shoppingcart
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.util.Log
 import android.widget.Toast
 import io.paperdb.Paper
@@ -36,7 +36,11 @@ class MainActivity : AppCompatActivity() {
 
 //        val layoutManager = StaggeredGridLayoutManager(this, Lin)
 
-        products_recyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        products_recyclerview.layoutManager =
+            StaggeredGridLayoutManager(
+                2,
+                StaggeredGridLayoutManager.VERTICAL
+            )
 
 
         cart_size.text = ShoppingCart.getShoppingCartSize().toString()
@@ -58,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
 
                 print(t.message)
-                Log.d("Data error", t.message)
+                Log.d("Data error", t.message!!)
                 Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_SHORT).show()
 
             }

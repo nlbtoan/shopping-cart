@@ -1,12 +1,12 @@
 package com.example.ethieladiassa.shoppingcart
 
 import android.graphics.PorterDuff
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.LinearLayoutCompat
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
 
@@ -35,7 +35,8 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         shopping_cart_recyclerView.adapter = adapter
 
-        shopping_cart_recyclerView.layoutManager = LinearLayoutManager(this)
+        shopping_cart_recyclerView.layoutManager =
+            LinearLayoutManager(this)
 
 
         var totalPrice = ShoppingCart.getCart()
@@ -46,7 +47,7 @@ class ShoppingCartActivity : AppCompatActivity() {
     }
 
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item?.itemId) {
             android.R.id.home -> {
